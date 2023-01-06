@@ -1,0 +1,52 @@
+entity PostComment {
+  body String
+  author String
+  timeStamp LocalDate
+}
+
+entity NewsArticle {
+  title String
+  author String
+  article String
+  genre Genre
+  date LocalDate
+  likes Integer
+}
+
+entity Bookmark {
+}
+
+enum Genre {
+  BUSINESS
+  ENTERTAINMENT
+  FOOD
+  HEALTH
+  POLITICS
+  SPORTS
+  STYLE
+  TECHNOLOGY
+  TRAVEL
+}
+
+application {
+  config {
+    authenticationType jwt,
+    baseName TAZEDaily,
+    packageName com.tazedaily,
+    applicationType monolith,
+    prodDatabaseType mysql,
+    clientFramework react
+    
+  }
+  entities *
+}
+
+relationship ManyToOne {
+  PostComment to NewsArticle
+  PostComment{user(login)} to User
+  Bookmark{user(login)} to User
+}
+
+relationship OneToOne {
+  Bookmark{newsarticle} to NewsArticle
+}
