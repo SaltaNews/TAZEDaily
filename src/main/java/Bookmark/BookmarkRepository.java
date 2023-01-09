@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookmarkRepository extends CrudRepository<Bookmark, Long> {
 
+    void delete(Long bookmarkId);
 }
