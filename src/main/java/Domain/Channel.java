@@ -10,7 +10,11 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 
 /**
  * An authority (a security role) used by Spring Security.
@@ -25,21 +29,55 @@ public class Channel implements Serializable {
     @NotNull
     @Size(max = 50)
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(length = 50)
     private Long id;
 
     @Size(max = 255)
-    private enum preferences {
-        BUSINESS,
-        ENTERTAINMENT,
-        FOOD,
-        HEALTH,
-        POLITICS,
-        SPORTS,
-        STYLE,
-        TECHNOLOGY,
-        TRAVEL
-    };
+    private Genre preference;
+
+    @OneToOne
+    @JoinColumn(unique = true)
+    private User user;
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public Channel id(Long id) {
+        this.setId(id);
+        return this;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Genre getPreference() {
+        return this.preference;
+    }
+
+    public Channel preference(Genre preference) {
+        this.setPreference(preference);
+        return this;
+    }
+
+    public void setPreference(Genre preference) {
+        this.preference = preference;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Channel user(User user) {
+        this.setUser(user);
+        return this;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -60,8 +98,8 @@ public class Channel implements Serializable {
     // prettier-ignore
     @Override
     public String toString() {
-        return "Authority{" +
-                "name=" +
+        return "Channel{" +
+                "user=" + user +
                 "}";
     }
 }
