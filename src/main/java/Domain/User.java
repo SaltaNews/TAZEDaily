@@ -1,6 +1,5 @@
 package Domain;
 
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -33,7 +32,7 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "user")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-public class User extends AbstractAuditingEntity<Long> {
+public class User {
 
     private static final long serialVersionUID = 1L;
 
