@@ -1,9 +1,5 @@
 package Bookmark;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Bookmark {
@@ -11,6 +7,14 @@ public class Bookmark {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "bookmark_id")
     private Long id;
+
+    @ManyToMany
+    @JoinColumn(name = "newsArticle_id")
+    private Long newsArticle_id;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Long user_id;
 
     public Bookmark() {
     }
