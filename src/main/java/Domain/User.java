@@ -24,6 +24,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 /**
@@ -74,9 +76,13 @@ public class User {
     @JoinTable(name = "user_authority", joinColumns = {
             @JoinColumn(name = "user_id", referencedColumnName = "id") }, inverseJoinColumns = {
                     @JoinColumn(name = "authority_name", referencedColumnName = "name") })
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @BatchSize(size = 20)
     private Set<Authority> authorities = new HashSet<>();
+
+    // User - Bookmarks
+    // @OneToMany
+    // @JoinTable(name = "id", joinColumns = {
+    // @JoinColumn(name = "")
+    // })
 
     public static long getSerialversionuid() {
         return serialVersionUID;
