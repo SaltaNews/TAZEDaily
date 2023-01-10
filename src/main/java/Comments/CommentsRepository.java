@@ -15,5 +15,4 @@ public interface CommentsRepository extends CrudRepository<Comment, Long> {
     void setDate(LocalDateTime datetime);
 
     void delete(Long commentId);
-
 }
