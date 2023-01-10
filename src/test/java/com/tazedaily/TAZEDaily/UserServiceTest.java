@@ -37,9 +37,12 @@ public class UserServiceTest {
                 mockBCryptPasswordEncoder);
         user = User.builder()
                 .id(1L)
+                .login("raylan.givens")
+                .password("avacrowder")
                 .firstName("Raylan")
                 .lastName("Givens")
                 .email("raylan.givens@usmarshals.gov")
+                .imageUrl("github.com")
                 .build();
 
         Mockito.when(mockUserRepository.save(any()))
