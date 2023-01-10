@@ -32,13 +32,13 @@ public class UserService {
         return userRepository.findByEmail(email);
     }
 
-    public User findUserByUserName(String userName) {
-        return userRepository.findByUserName(userName);
+    public User findUserByLogin(String login) {
+        return userRepository.findByUser(login);
     }
 
     public User saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        Authority userRole = authorityRepository.findByRole("ADMIN");
+        Authority userRole = authorityRepository.findByAuthority("ROLE_ADMIN");
         user.setAuthorities(new HashSet<Authority>(Arrays.asList(userRole)));
         return userRepository.save(user);
     }

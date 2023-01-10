@@ -1,24 +1,35 @@
 package Domain;
 
 import java.io.Serializable;
-import java.util.Objects;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 /**
- * An authority (a security role) used by Spring Security.
+ * A channel, User Genre Preferences.
  */
+@Data
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "channel")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
@@ -36,25 +47,13 @@ public class Channel implements Serializable {
     @Size(max = 255)
     private Genre preference;
 
-    @OneToOne
-    @JoinColumn(unique = true)
+    @ManyToOne
+    @JoinColumn(unique = false)
     private User user;
-
-    public Long getId() {
-        return this.id;
-    }
 
     public Channel id(Long id) {
         this.setId(id);
         return this;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Genre getPreference() {
-        return this.preference;
     }
 
     public Channel preference(Genre preference) {
@@ -62,44 +61,8 @@ public class Channel implements Serializable {
         return this;
     }
 
-    public void setPreference(Genre preference) {
-        this.preference = preference;
-    }
-
-    public User getUser() {
-        return this.user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Channel user(User user) {
         this.setUser(user);
         return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Channel)) {
-            return false;
-        }
-        return Objects.equals(id, ((Channel) o).id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
-
-    // prettier-ignore
-    @Override
-    public String toString() {
-        return "Channel{" +
-                "user=" + user +
-                "}";
     }
 }

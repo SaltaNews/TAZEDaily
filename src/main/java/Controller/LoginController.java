@@ -39,7 +39,7 @@ public class LoginController {
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
     public ModelAndView createNewUser(@Valid User user, BindingResult bindingResult) {
         ModelAndView modelAndView = new ModelAndView();
-        User userExists = userService.findUserByUserName(user.getLogin());
+        User userExists = userService.findUserByLogin(user.getLogin());
         if (userExists != null) {
             bindingResult
                     .rejectValue("userName", "error.user",
@@ -61,7 +61,7 @@ public class LoginController {
     public ModelAndView home() {
         ModelAndView modelAndView = new ModelAndView();
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User user = userService.findUserByUserName(auth.getName());
+        User user = userService.findUserByLogin(auth.getName());
         modelAndView.addObject("userName", "Welcome " + user.getLogin() + "/" + user.getFirstName() + " "
                 + user.getLastName() + " (" + user.getEmail() + ")");
         modelAndView.addObject("adminMessage", "Content Available Only for Users with Admin Role");

@@ -12,8 +12,8 @@ CREATE TABLE if not exists USER(
 );             
 -- ALTER TABLE USER ADD CONSTRAINT PK_USER PRIMARY KEY(ID);       
 -- 2 +/- SELECT COUNT(*) FROM PUBLIC.USER; 
-INSERT INTO USER VALUES(1, 'admin', 'admin', 'Administrator', 'Administrator', 'admin@localhost', '');     
-INSERT INTO USER VALUES(2, 'user', 'user', 'User', 'User', 'user@localhost', '');         
+INSERT INTO USER VALUES(1, 'admin', '$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC', 'Administrator', 'Administrator', 'admin@localhost', '');     
+INSERT INTO USER VALUES(2, 'user', '$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K', 'User', 'User', 'user@localhost', '');         
 CREATE TABLE if not exists AUTHORITY(
     ROLES CHARACTER VARYING(50) NOT NULL PRIMARY Key
 );     

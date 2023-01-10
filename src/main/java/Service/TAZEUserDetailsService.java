@@ -25,13 +25,13 @@ public class TAZEUserDetailsService implements UserDetailsService {
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userService.findUserByUserName(userName);
+        User user = userService.findUserByLogin(userName);
         List<GrantedAuthority> authorities = getUserAuthority(user.getAuthorities());
         return buildUserForAuthentication(user, authorities);
     }
 
     private List<GrantedAuthority> getUserAuthority(Set<Authority> userRoles) {
-        Set<GrantedAuthority> roles = new HashSet<GrantedAuthority>();
+        Set<GrantedAuthority> roles = new HashSet<>();
         for (Authority authority : userRoles) {
             roles.add(new SimpleGrantedAuthority(authority.getName()));
         }
