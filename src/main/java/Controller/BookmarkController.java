@@ -1,16 +1,19 @@
-package Bookmark;
+package Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import Domain.Bookmark;
+import Repository.BookmarkRepository;
+
 @RestController
 public class BookmarkController {
     @Autowired
     private BookmarkRepository bookmarkRepository;
 
-    public BookmarkController (BookmarkRepository bookmarkRepository) {
+    public BookmarkController(BookmarkRepository bookmarkRepository) {
         this.bookmarkRepository = bookmarkRepository;
     }
 
@@ -21,13 +24,13 @@ public class BookmarkController {
     }
 
     @RequestMapping(value = "/bookmark/add", method = RequestMethod.POST)
-    public ResponseEntity<Bookmark> create (@RequestBody Bookmark bookmark) {
+    public ResponseEntity<Bookmark> create(@RequestBody Bookmark bookmark) {
         bookmarkRepository.save(bookmark);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @RequestMapping(value="/bookmark/{bookmarkId}", method=RequestMethod.DELETE)
-    public ResponseEntity<Bookmark> delete (@PathVariable Long bookmarkId) {
+    @RequestMapping(value = "/bookmark/{bookmarkId}", method = RequestMethod.DELETE)
+    public ResponseEntity<Bookmark> delete(@PathVariable Long bookmarkId) {
         bookmarkRepository.delete(bookmarkId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
