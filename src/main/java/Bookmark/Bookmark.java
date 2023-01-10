@@ -1,4 +1,3 @@
-
 package Bookmark;
 
 import jakarta.persistence.*;
