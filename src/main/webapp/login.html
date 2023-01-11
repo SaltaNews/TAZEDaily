@@ -17,7 +17,7 @@
 
 <div class="container">
     <img src="/images/login.jpg" class="img-responsive center-block" width="300" height="300" alt="Logo"/>
-    <form th:action="@{/login}" method="POST" class="form-signin">
+    <form th:action="@{/login}" method="GET" class="form-signin">
         <h3 class="form-signin-heading" th:text="Welcome"></h3>
         <br/>
 
@@ -26,9 +26,9 @@
         <input type="password" th:placeholder="Password"
             id="password" name="password" class="form-control"/> <br/>
 
-        <!-- <div align="center" th:if="${param.error}">
+        <div align="center" th:if="${param.error}">
             <p style="font-size: 20; color: #FF1C19;">User Name or Password invalid, please verify</p>
-        </div> -->
+        </div>
         <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit"
                 th:text="Login">Login</button>
     </form>
