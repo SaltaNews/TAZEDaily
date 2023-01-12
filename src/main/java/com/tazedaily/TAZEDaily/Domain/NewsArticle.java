@@ -1,6 +1,6 @@
 package com.tazedaily.TAZEDaily.Domain;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,7 +34,7 @@ public class NewsArticle {
 
     private Genre genre;
 
-    private LocalDate date;
+    private LocalDateTime date;
 
     private Integer likes;
 
