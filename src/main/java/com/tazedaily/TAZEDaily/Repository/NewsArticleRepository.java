@@ -7,5 +7,5 @@ import com.tazedaily.TAZEDaily.Domain.NewsArticle;
 
 @Repository
 public interface NewsArticleRepository extends JpaRepository<NewsArticle, Long> {
-
+    NewsArticle findArticleById(Long id);
 }

@@ -6,4 +6,5 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface BookmarkRepository extends CrudRepository<Bookmark, Long> {
+    Bookmark findBookmarkById(Long id);
 }
