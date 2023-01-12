@@ -15,20 +15,15 @@ public class BookmarkController {
     @Autowired
     private BookmarkRepository bookmarkRepository;
 
-    public BookmarkController(BookmarkRepository bookmarkRepository) {
-        this.bookmarkRepository = bookmarkRepository;
-    }
-
     @GetMapping
     public ResponseEntity<Iterable<Bookmark>> getAllBookmarks() {
         return new ResponseEntity<>(bookmarkRepository.findAll(), HttpStatus.OK);
     }
 
-    // @GetMapping("/{id}")
-    // public ResponseEntity<Bookmark> getBookmarkById(@PathVariable Long id) {
-    // return new ResponseEntity<Bookmark>(bookmarkRepository.findById(id),
-    // HttpStatus.OK);
-    // }
+    @GetMapping("/{id}")
+    public ResponseEntity<Bookmark> getBookmarkById(@PathVariable Long id) {
+        return new ResponseEntity<Bookmark>(bookmarkRepository.findBookmarkById(id), HttpStatus.OK);
+    }
 
     @PostMapping
     public ResponseEntity<Bookmark> createBookmark(@RequestBody Bookmark bookmark) {

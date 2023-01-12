@@ -24,10 +24,10 @@ public class Channel {
     @Id
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    private Genre preference;
-
     @ManyToOne
     @JoinColumn(unique = false)
     private User user;
+
+    @Enumerated(EnumType.STRING)
+    private Genre preferences;
 }
