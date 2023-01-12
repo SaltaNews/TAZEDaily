@@ -1,16 +1,16 @@
 package com.tazedaily.TAZEDaily;
 
-import Domain.User;
-import Repository.AuthorityRepository;
-import Repository.UserRepository;
-import Service.UserService;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import com.tazedaily.TAZEDaily.Domain.User;
+import com.tazedaily.TAZEDaily.Repository.AuthorityRepository;
+import com.tazedaily.TAZEDaily.Repository.UserRepository;
+import com.tazedaily.TAZEDaily.Service.UserService;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
