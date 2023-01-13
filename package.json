@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@types/jest": "^29.2.5",
+    "@types/node": "^18.11.18",
     "bootstrap": "^5.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -8,9 +10,10 @@
     "react-toastify": "^9.1.1",
     "reactstrap": "^9.1.5",
     "redux": "^4.2.0",
-    "swagger": "^0.7.5",
+    "swagger": "^0.0.1",
     "swagger-ui": "^4.15.5",
-    "thymeleaf": "^0.21.0"
+    "thymeleaf": "^0.21.0",
+    "typescript": "^4.9.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
