@@ -4,6 +4,8 @@ import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -47,6 +49,7 @@ public class NewsArticle {
 
     private Integer likes;
 
-    @OneToMany(mappedBy = "newsArticle")
+    @JsonIgnore
+    @OneToMany
     private Set<Comment> Comments = new HashSet<>();
 }
