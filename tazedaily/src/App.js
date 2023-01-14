@@ -1,60 +1,181 @@
 // import logo from './logo.svg';
 // import './App.css';
-//import axios from 'axios';
-// import Axios from 'axios';
+import axios from 'axios';
 // import { divide } from 'lodash';
 //import {usedState} from 'react';
 //import searchArticles from './searchArticles.js';
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect } from 'react';
+import { Button, Table, Toast, ToastBody, ToastHeader } from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { 
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption,
+} from 'reactstrap';
 
-const REACT_APP_ARTICLESEARCH_API_KEY = '1kZSoFSlY109zEMAjDOfogdE32rPiSVT';
+// const api = ${REACT_APP_ARTICLESEARCH_API_KEY};
 const App = () => {
   const [articles, setArticles] = useState([])
-  const [term, setTerm] = useState('everything')
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    const fetchArticles = async () => {
-    try{
-        const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${REACT_APP_ARTICLESEARCH_API_KEY}`)
-        const articles = await res.json()
-        // console.log(articles.response.docs)
-        setArticles(articles.response.docs)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
     fetchArticles()
   }, [])
 
-  return (
-    <>
-    <section>
-      {articles.map((article) => {
-        const{abstract, headline: {main}, byline:{original}, lead_paragraph, news_desk, section_name, web_url, _id, word_count} = article
+  var items = []
+  for (let i=0; i < articles.length; i++) {
+    if (items[0] === []) {
+      items.pop()
+    } else {
+      items.push({
+        id: articles[i].id,
+        altText: articles[i].title,
+        caption: articles[i].snip,
+        src: articles[i].image})
+    }
+  }
+  const fetchArticles = async () => {
+      const res = await axios.get("http://127.0.0.1:8080/newsarticle")
+      setArticles(res.data)
+      console.log(res.data)
+  }
 
-        return(
-          <article key={_id}>
-            <h2>{main}</h2>
-            <h4>{abstract}</h4>
-            <a href={web_url} target="_blank">Web Resource</a>
-            <p>{lead_paragraph}</p>
-
-            <ul>
-              <li>{original}</li>
-              <li>{news_desk}</li>
-              <li>{section_name}</li>
-              <li>{word_count}</li>
-            </ul>
-            </article>
-        )
-      })}
-    </section>
-    </>
-  );
-}
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [animating, setAnimating] = useState(false);
+  
+    const next = () => {
+      if (animating) return;
+      const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+      setActiveIndex(nextIndex);
+    };
+  
+    const previous = () => {
+      if (animating) return;
+      const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+      setActiveIndex(nextIndex);
+    };
+  
+    const goToIndex = (newIndex) => {
+      if (animating) return;
+      setActiveIndex(newIndex);
+    };
+  
+    const slides = items.map((test) => {
+      return (
+        <CarouselItem
+          className="custom-tag bg-light"
+          tag="div"
+          key={test.id}
+          onExiting={() => setAnimating(true)}
+          onExited={() => setAnimating(false)}
+        >
+          <div class="row">
+            <div className="col"></div>
+            <div className="col mx-auto">
+            <img src={test.src} className="p-2 rounded background-image md" atl={test.altText} />
+            </div>
+            <div className="col"></div>
+          </div>
+          <CarouselCaption
+            className="text-dark"
+            captionText={test.caption}
+            captionHeader={test.caption}
+          />
+        </CarouselItem>
+      );
+    });
+  
+    return (
+      <div className="bg-light" height="100%">
+        <h1 className="text-center">TAZE Daily</h1>
+        <div className="container text-center">
+          <div className ="row align-items-start">
+            <div className="col">
+              <Button className="bg-light text-dark">BUSINESS</Button>
+              <Button className="bg-light text-dark">ENTERTAINMENT</Button>
+              <Button className="bg-light text-dark">FOOD</Button>
+              <Button className="bg-light text-dark">HEALTH</Button>
+              <Button className="bg-light text-dark">POLITICS</Button>
+              <Button className="bg-light text-dark">SPORTS</Button>
+              <Button className="bg-light text-dark">STYLE</Button>
+              <Button className="bg-light text-dark">TECHNOLOGY</Button>
+              <Button className="bg-light text-dark">TRAVEL</Button>
+            </div>
+          </div>
+        </div>
+        <style>
+          {`.custom-tag {
+                max-width: 100%;
+                height: 600px;
+              }`}
+        </style>
+        <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+          <CarouselIndicators
+            items={items}
+            activeIndex={activeIndex}
+            onClickHandler={goToIndex}
+          />
+          {slides}
+          <CarouselControl
+            direction="prev"
+            directionText="Previous"
+            onClickHandler={previous}
+          />
+          <CarouselControl
+            direction="next"
+            directionText="Next"
+            onClickHandler={next}
+          />
+        </Carousel>
+        <div className="p-2">Copywrite 2023</div>
+      </div>
+    );
+  }
 export default App;
+
+  /** Working copy of displayed articles */
+  // return (
+  //   <div className="container text-center"> 
+  //     <div className="row align-itmes-start">{articles.map((user) => ( 
+  //       <div className="col" key={user.id}>
+  //         <Toast>
+  //           <ToastHeader>
+  //             {user.title}
+  //           </ToastHeader>
+  //           <ToastBody>{user.snip}
+  //             <img src={user.image} alt="no pic" width="100%" />
+  //             <p>{user.article}</p>
+  //             <p>{user.author} {user.date}</p>
+  //             <p>Source:<a href={user.source}> NY Times</a></p>
+  //             <p>{user.genre}</p>
+  //             <p>{user.likes} Likes</p>
+  //         </ToastBody>
+  //         </Toast>
+          
+  //       </div>))}
+  //     </div>
+  //   </div>
+  // )
+
+    /** NY Times API */
+  // const [term, setTerm] = useState('everything')
+  // useEffect(() => {
+  //   const fetchArticles = async () => {
+  //   try{
+  //       const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${REACT_APP_ARTICLESEARCH_API_KEY}`)
+  //       const articles = await res.json()
+  //       // console.log(articles.response.docs)
+  //       setArticles(articles.response.docs)
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
+
+  //   fetchArticles()
+  // }, [])
+
+
 
 // const REACT_APP_ARTICLESEARCH_API_KEY = '1kZSoFSlY109zEMAjDOfogdE32rPiSVT';
 // const App = () => {
@@ -156,4 +277,3 @@ export default App;
 //      </div>
 //    </div>
 //   </>
-

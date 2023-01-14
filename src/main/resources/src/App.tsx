@@ -51,3 +51,58 @@ function App() {
 }
 
 export default App;
+
+
+
+// import React, {useState, useEffect} from 'react'
+
+// const REACT_APP_ARTICLESEARCH_API_KEY = '1kZSoFSlY109zEMAjDOfogdE32rPiSVT';
+// const App = () => {
+//   const [articles, setArticles] = useState([])
+//   const [term, setTerm] = useState('everything')
+//   const [isLoading, setIsLoading] = useState(true)
+
+//   useEffect(() => {
+//     const fetchArticles = async () => {
+//     try{
+//         const res = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${term}&api-key=${REACT_APP_ARTICLESEARCH_API_KEY}`)
+//         const articles = await res.json()
+//         // console.log(articles.response.docs)
+//         setArticles(articles.response.docs)
+//     } catch (error) {
+//       console.error(error)
+//     }
+//   }
+
+//     fetchArticles()
+//   }, [])
+
+//   const postArticles = async () => {
+//   for (let i=0; i<10; i++) {
+//     try {
+//       const res = await fetch('localhost:8080/newsarticle', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/JSON'},
+//         body: {
+//             '"title"':  articles[i].headline.main, 
+//             '"author"': + articles[i].byline.original,
+//             '"snip"': articles[i].abstract,
+//             '"article"': articles[i].lead_paragraph,
+//             '"image"': "https://www.nytimes.com/" + articles[i].multimedia[0].url,
+//             '"source"': articles[i].web_url,
+//             '"genre"': term + '-' + articles[i].section_name,
+//             '"date"': articles[i].pub_date.subString(0, 19) + '"}'}
+//         });
+//         const data = await res.json();
+//         if (!res.ok) { 
+//           console.log(data.description);
+//           return;
+//         }
+//         console.log(data)
+//       }
+//       catch (error) {
+//         console.log(error);
+//       }
+//       postArticles()
+//     }
+//   }
