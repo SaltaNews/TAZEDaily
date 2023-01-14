@@ -1,18 +1,25 @@
-import React from "react";
-import "./articleStyle.css";
 
-export default function searchArticles({article}){
-return (
-<div className = "articleSquare" onClick = {() => {window.open(article["article"]["url"]);
-}}>
-<img className = "articleImage" src = {article["article"]["image"]}/>
-<p className = "articleParagraph" >{article["article"]["paragraph"]}</p>
-</div>
-);
-}
+
+//https://api.nytimes.com/svc/search/v2/articlesearch.json?q=politics&api-key=yourkey
+
+//https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election&api-key=1kZSoFSlY109zEMAjDOfogdE32rPiSVT
 
 
 
+
+
+//import React from "react";
+//import "./articleStyle.css";
+//
+//export default function searchArticles({article}){
+//return (
+//<div className = "articleSquare" onClick = {() => {window.open(article["article"]["url"]);
+//}}>
+//<img className = "articleImage" src = {article["article"]["image"]}/>
+//<p className = "articleParagraph" >{article["article"]["paragraph"]}</p>
+//</div>
+//);
+//}
 
 
 //const { createElement } = require("react/cjs/react.development");
