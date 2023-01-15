@@ -105,6 +105,10 @@ const App = () => {
             <Button className="rounded bg-light text-dark">TECHNOLOGY</Button>
             <Button className="rounded bg-light text-dark">TRAVEL</Button>
           </div>
+          <form class="d-flex">
+            <input className="form-control me-2" type="search" placeholder="Search news"></input>
+            <Button className="btn btn-outline-default" type="button">Search</Button>
+          </form>
         </div>
       </div>
       <style>
