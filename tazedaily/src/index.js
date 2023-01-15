@@ -1,14 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Route } from 'react-router-dom';
 
+import App from './App';
+import Technology from './genre/Technology'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <App />
+      {/* <Route index element={<App />} />
+      <Route path="technology" element={<Technology />} /> */}
   </React.StrictMode>
 );
 

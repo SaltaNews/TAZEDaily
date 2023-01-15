@@ -1,9 +1,10 @@
-import logo from './logo.png';
 import './App.css';
 import axios from 'axios';
 import React, {useState, useEffect } from 'react';
-import { Button } from 'reactstrap';
+import Header from './Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Technology from './genre/Technology';
+
 import { 
   Carousel,
   CarouselItem,
@@ -75,7 +76,7 @@ const App = () => {
         <div class="row">
           <div className="col"></div>
           <div className="col mx-auto">
-            <img src={test.src} className="p-2 rounded background-image md" alt={test.altText} />
+            <img src={test.src} class="center" className="p-2 rounded" height="350px" alt={test.altText} />
           </div>
           <div className="col"></div>
         </div>
@@ -90,29 +91,8 @@ const App = () => {
 
   /** return carousel homepage */
   return (
-    <div className="bg-light" width="100%" height="100%">
-      <h1 className="text-center"><img className="logo rounded" src={logo} alt="TAZE Daily"/></h1>
-      <div className="container text-center">
-        <div className ="row align-items-start">
-          <div className="col">
-            <Button className="bg-light text-dark" to="/newsarticle/business">BUSINESS</Button>
-            <Button className="rounded bg-light text-dark">ENTERTAINMENT</Button>
-            <Button className="rounded bg-light text-dark">FOOD</Button>
-            <Button className="rounded bg-light text-dark">HEALTH</Button>
-            <Button className="rounded bg-light text-dark">POLITICS</Button>
-            <Button className="rounded bg-light text-dark">SPORTS</Button>
-            <Button className="rounded bg-light text-dark">STYLE</Button>
-            <Button className="rounded bg-light text-dark">TECHNOLOGY</Button>
-            <Button className="rounded bg-light text-dark">TRAVEL</Button>
-          </div>
-        </div>
-      </div>
-      <style>
-        {`.custom-tag {
-              max-width: 100%;
-              height: 600px;
-            }`}
-      </style>
+    <div className="bg-light">
+      <Header />
       <Carousel activeIndex={activeIndex} next={next} previous={previous}>
         <CarouselIndicators
           items={items}
@@ -132,6 +112,7 @@ const App = () => {
         />
       </Carousel>
       <div className="p-2">Copywrite 2023</div>
+      {/* <Technology /> */}
     </div>
   );
 }
