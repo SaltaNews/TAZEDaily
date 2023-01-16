@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 
-const Technology = () => {
+const Sports = () => {
 
   const [articles, setArticles] = useState([])
 
@@ -23,7 +23,6 @@ const Technology = () => {
     console.log(res.data)
   }
 
-  /** split articles into three columns */
   const firstArticles = articles.splice(0,3).map((article) => {
     const hoverFocus = ['hover', 'focus']
     const popover = (
@@ -37,6 +36,7 @@ const Technology = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
+          {/* <div><img className="rounded" src={article.image} alt="no pic" width="100%" /></div> */}
           <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
             <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
           </OverlayTrigger>
@@ -58,7 +58,6 @@ const Technology = () => {
     )
   })
 
-  /** split articles into three columns */
   const secondArticles = articles.splice(0,3).map((article) => {
     const hoverFocus = ['hover', 'focus']
     const popover = (
@@ -72,6 +71,7 @@ const Technology = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
+          {/* <div><img className="rounded" src={article.image} alt="no pic" width="100%" /></div> */}
           <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
             <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
           </OverlayTrigger>
@@ -93,7 +93,6 @@ const Technology = () => {
     )
   })
 
-  /** split articles into three columns */
   const thirdArticles = articles.splice(0,3).map((article) => {
     const hoverFocus = ['hover', 'focus']
     const popover = (
@@ -107,6 +106,7 @@ const Technology = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
+          {/* <div><img className="rounded" src={article.image} alt="no pic" width="100%" /></div> */}
           <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
             <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
           </OverlayTrigger>
@@ -128,13 +128,12 @@ const Technology = () => {
     )
   })
 
-  /** build article accordions */
   return (
     <div className="container text-center"> 
       <Header />
       <div className="text-center">
         <h1>
-          Latest news in Technology
+          Latest news in Sports
         </h1>
       </div>
       <div className="row justify-content-center">
@@ -158,4 +157,4 @@ const Technology = () => {
   )
 }
 
-export default Technology;
+export default Sports;
