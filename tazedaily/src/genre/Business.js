@@ -1,4 +1,4 @@
-import '../Header.js';
+import Header from '../Header.js';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
@@ -16,7 +16,7 @@ import PopulateArticles from './PopulateArticles';
 const Business = () => {
     return (
         <div className="container text-center">
-            <Header/>
+            <Header />
             <h1> Latest news in Business</h1>
             <PopulateArticles category="business" />
         </div>
