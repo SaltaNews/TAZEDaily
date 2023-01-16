@@ -4,7 +4,7 @@ import React, {useState, useEffect } from 'react';
 import Header from './Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { 
+import {
   Carousel,
   CarouselItem,
   CarouselControl,
@@ -61,7 +61,7 @@ const App = () => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-  
+
   /** fill slides with article info */
   const slides = items.map((article) => {
     return (
