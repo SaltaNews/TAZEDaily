@@ -18,7 +18,7 @@ const Business = () => {
         <div className="container text-center">
             <Header />
             <h1> Latest news in Business</h1>
-            <PopulateArticles category="business" />
+            <PopulateArticles category="BUSINESS" />
         </div>
     )
 }
