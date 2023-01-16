@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Home = () => {
     return(
         <div className="text-center">
-            <div href="/">
+            <div>
                 <Button variant="p-0 outline-*-light" href="/">
                     <img src={logo} alt="TAZE Daily"/>
                 </Button>

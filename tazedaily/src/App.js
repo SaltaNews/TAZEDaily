@@ -72,12 +72,12 @@ const App = () => {
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
       >
-        <div class="row">
-          <div className="col"></div>
-          <div className="col mx-auto">
-            <img className="rounded" src={article.src} class="center"  height="350px" alt={article.altText} />
+        <div class="row justify-content-center">
+          <div className="col-2 p-1 mb-2"></div>
+          <div className="col-4 p-1 mb-2">
+            <img className="rounded h-50" src={article.src} alt={article.altText} />
           </div>
-          <div className="col"></div>
+          <div className="col-2 p-1 mb-2"></div>
         </div>
         <CarouselCaption
           className="text-dark"
