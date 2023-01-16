@@ -16,9 +16,9 @@ import PopulateArticles from './PopulateArticles';
 const Travel = () => {
     return (
         <div className="container text-center">
-            <Header />
+            <Header/>
             <h1> Latest news in Travel</h1>
-            <PopulateArticles categegory="travel" />
+            <PopulateArticles category="travel" />
         </div>
     )
 }
