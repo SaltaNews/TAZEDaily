@@ -9,7 +9,7 @@ const Style = () => {
     <div className="container text-center"> 
       <Header />
       <h1>Latest news in Style</h1>
-      <PopulateArticles category="style"/>
+      <PopulateArticles category="STYLE"/>
     </div>
   )
 }

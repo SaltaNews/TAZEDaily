@@ -9,7 +9,7 @@ const Entertainment = () => {
     <div className="container text-center"> 
       <Header />
       <h1>Latest news in Entertainment</h1>
-      <PopulateArticles category="entertainment"/>
+      <PopulateArticles category="ENTERTAINMENT"/>
     </div>
   )
 }
