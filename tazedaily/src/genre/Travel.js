@@ -18,7 +18,7 @@ const Travel = () => {
         <div className="container text-center">
             <Header />
             <h1> Latest news in Travel</h1>
-            <PopulateArticles category="travel" />
+            <PopulateArticles category="TRAVEL" />
         </div>
     )
 }
