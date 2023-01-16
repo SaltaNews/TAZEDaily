@@ -3,7 +3,6 @@ import axios from 'axios';
 import React, {useState, useEffect } from 'react';
 import Header from './Header'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Technology from './genre/Technology';
 
 import { 
   Carousel,
@@ -64,26 +63,26 @@ const App = () => {
   };
   
   /** fill slides with article info */
-  const slides = items.map((test) => {
+  const slides = items.map((article) => {
     return (
       <CarouselItem
         className="custom-tag bg-light"
         tag="div"
-        key={test.id}
+        key={article.id}
         onExiting={() => setAnimating(true)}
         onExited={() => setAnimating(false)}
       >
         <div class="row">
           <div className="col"></div>
           <div className="col mx-auto">
-            <img src={test.src} class="center" className="p-2 rounded" height="350px" alt={test.altText} />
+            <img className="rounded" src={article.src} class="center"  height="350px" alt={article.altText} />
           </div>
           <div className="col"></div>
         </div>
         <CarouselCaption
           className="text-dark"
-          captionText={test.caption}
-          captionHeader={test.caption}
+          captionText={article.caption}
+          captionHeader={article.caption}
         />
       </CarouselItem>
     );

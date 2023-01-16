@@ -38,13 +38,13 @@
 }
 
 .custom-tag {
-  height: 550px;
+  height: 525px;
 }
 
 hr.divider { 
   margin: 0em;
   border-width: 1px;
-  width: 60%;
+  width: 100%;
 } 
 
 img.center {
@@ -52,4 +52,18 @@ img.center {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+button.logo {
+  border: none;
+  cursor: pointer;
+  appearance: none;
+  background-color: inherit;
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  outline: 0!important;
+  color: 0 0 0 0.25rem rgba(255, 255, 255, 0);
+  box-shadow: 0 0 0 0.25rem rgba(39, 156, 136, 0.25);
 }
