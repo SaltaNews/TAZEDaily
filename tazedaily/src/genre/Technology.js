@@ -37,8 +37,8 @@ const Technology = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
-          <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
-            <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
+          <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
+            <strong>{article.snip}</strong>
           </OverlayTrigger>
         </Accordion.Header>
         <Accordion.Body>
@@ -72,8 +72,8 @@ const Technology = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
-          <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
-            <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
+          <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
+            <strong>{article.snip}</strong>
           </OverlayTrigger>
         </Accordion.Header>
         <Accordion.Body>
@@ -107,8 +107,8 @@ const Technology = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
-          <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
-            <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
+          <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
+            <strong>{article.snip}</strong>
           </OverlayTrigger>
         </Accordion.Header>
         <Accordion.Body>

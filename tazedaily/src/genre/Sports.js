@@ -36,13 +36,12 @@ const Sports = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
-          {/* <div><img className="rounded" src={article.image} alt="no pic" width="100%" /></div> */}
-          <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
-            <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
+          <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
+              <strong>{article.snip}</strong>
           </OverlayTrigger>
         </Accordion.Header>
         <Accordion.Body>
-          <p><h6>{article.title}</h6></p>
+          <h6>{article.title}</h6>
           <p>{article.article}</p>
           <p>{article.author} {article.date}</p>
           <p>Source:<a href={article.source}> NY Times</a></p>
@@ -63,7 +62,7 @@ const Sports = () => {
     const popover = (
       <Popover width="1000px" height="200px">
           <Popover.Body>
-              <img src={ article.image } alt="article" width="100%"/>
+            <img src={ article.image } alt="article" width="100%"/>
           </Popover.Body>
       </Popover>
     );
@@ -71,9 +70,8 @@ const Sports = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
-          {/* <div><img className="rounded" src={article.image} alt="no pic" width="100%" /></div> */}
-          <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
-            <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
+        <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
+            <strong>{article.snip}</strong>
           </OverlayTrigger>
         </Accordion.Header>
         <Accordion.Body>
@@ -106,9 +104,8 @@ const Sports = () => {
     return (
       <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
-          {/* <div><img className="rounded" src={article.image} alt="no pic" width="100%" /></div> */}
-          <OverlayTrigger trigger={hoverFocus} placement="right" overlay={ popover }>
-            <Button variant="outline-*-light"><strong>{article.snip}</strong></Button>
+          <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
+            <strong>{article.snip}</strong>
           </OverlayTrigger>
         </Accordion.Header>
         <Accordion.Body>

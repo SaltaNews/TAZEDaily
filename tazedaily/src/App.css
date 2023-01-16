@@ -38,7 +38,7 @@
 }
 
 .custom-tag {
-  height: 525px;
+  height: 530px;
 }
 
 hr.divider { 
@@ -59,11 +59,13 @@ button.logo {
   cursor: pointer;
   appearance: none;
   background-color: inherit;
+  padding: 0rem;
 }
 
-.accordion-button:focus {
+.accordion-button {
+  height: 100px;
   z-index: 3;
-  outline: 0!important;
+  outline: 0;
+  border: 0rem;
   color: 0 0 0 0.25rem rgba(255, 255, 255, 0);
-  box-shadow: 0 0 0 0.25rem rgba(39, 156, 136, 0.25);
 }
