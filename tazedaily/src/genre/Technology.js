@@ -8,8 +8,8 @@ const Technology = () => {
   return (
     <div className="container text-center"> 
       <Header />
-      <h1>Latest news in Technology</h1>
-      <PopulateArticles category="technology"/>
+      <h1 className="text-secondary">Latest news in Technology</h1>
+      <PopulateArticles category="TECHNOLOGY"/>
     </div>
   )
 }

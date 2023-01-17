@@ -8,8 +8,8 @@ const Sports = () => {
   return (
     <div className="container text-center"> 
       <Header />
-      <h1>Latest news in Sports</h1>
-      <PopulateArticles category="sports" />
+      <h1 className="text-secondary">Latest news in Sports</h1>
+      <PopulateArticles category="SPORTS" />
     </div>
   )
 }
