@@ -5,6 +5,8 @@ import com.tazedaily.TAZEDaily.Domain.NewsArticle;
 import com.tazedaily.TAZEDaily.Repository.NewsArticleRepository;
 import com.tazedaily.TAZEDaily.Service.NewsArticleService;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,6 +49,11 @@ public class NewsArticleController {
     @PostMapping
     public ResponseEntity<NewsArticle> createNewsArticle(@RequestBody NewsArticle newsArticle) {
         return new ResponseEntity<>(newsArticleRepository.save(newsArticle), HttpStatus.CREATED);
+    }
+
+    @PostMapping("/postall")
+    public ResponseEntity<Iterable<NewsArticle>> postAllArticles(@RequestBody List<NewsArticle> list) {
+        return new ResponseEntity<>(newsArticleRepository.saveAll(list), HttpStatus.CREATED);
     }
 
     @PutMapping("/update/{id}")

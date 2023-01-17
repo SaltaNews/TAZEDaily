@@ -14,7 +14,7 @@ const Home = () => {
             <div>
                 <div className ="row align-items-start">
                     <div className="col p-0">
-                        <center><hr class="divider"></hr></center>
+                        <center><hr className="divider"></hr></center>
                         <Button variant="outline-*-light" href="/business">BUSINESS</Button>
                         <Button variant="outline-*-light" href="/entertainment">ENTERTAINMENT</Button>
                         <Button variant="outline-*-light" href="/food">FOOD</Button>
@@ -24,7 +24,7 @@ const Home = () => {
                         <Button variant="outline-*-light" href="/style">STYLE</Button>
                         <Button variant="outline-*-light" href="/technology">TECHNOLOGY</Button>
                         <Button variant="outline-*-light" href="/travel">TRAVEL</Button>
-                        <center><hr class="divider"></hr></center>
+                        <center><hr className="divider"></hr></center>
                     </div>
                 </div>
             </div>
