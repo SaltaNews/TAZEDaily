@@ -62,7 +62,7 @@ public class NewsArticleController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<NewsArticle> delete(@PathVariable Long id) {
-        return new ResponseEntity<>(HttpStatus.OK);
+    public void delete(@PathVariable Long id) {
+        newsArticleRepository.deleteById(id);
     }
 }
