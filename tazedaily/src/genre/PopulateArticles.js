@@ -9,7 +9,7 @@ import comment from '../images/comment.png';
 
 const PopulateArticles = (props) => {
     const [articles, setArticles] = useState([])
-    
+
     const url = "http://127.0.0.1:8080/newsarticle/genre/" + props.category;
 
     useEffect(() => {
@@ -56,7 +56,8 @@ const PopulateArticles = (props) => {
         <Accordion.Item eventKey={article.id}>
             <Accordion.Header id="accordion-button">
                 <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
-                    <strong>{article.snip}</strong>
+                    {/* <strong>{article.snip}</strong> */}
+                    <strong>{article.title}</strong>
                 </OverlayTrigger>
             </Accordion.Header>
             <Accordion.Body>
@@ -107,7 +108,8 @@ const PopulateArticles = (props) => {
         <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
             <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
-            <strong>{article.snip}</strong>
+            {/* <strong>{article.snip}</strong> */}
+            <strong>{article.title}</strong>
             </OverlayTrigger>
         </Accordion.Header>
         <Accordion.Body>
@@ -167,11 +169,12 @@ const PopulateArticles = (props) => {
         <Accordion.Item eventKey={article.id}>
             <Accordion.Header id="accordion-button">
                 <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
-                    <strong>{article.snip}</strong>
+                    {/* <strong>{article.snip}</strong> */}
+                    <strong>{article.title}</strong>
                 </OverlayTrigger>
             </Accordion.Header>
             <Accordion.Body>
-                <p><h6>{article.title}</h6></p>
+                <p><h6>{article.snip}</h6></p>
                 <p>{article.article}</p>
                 <p>{article.author} {article.date}</p>
                 {/* <p>Full article:<a href={article.id}> Read More</a></p> */}
@@ -217,6 +220,6 @@ const PopulateArticles = (props) => {
         </div>
     )
 }
-  
+
 
 export default PopulateArticles;
