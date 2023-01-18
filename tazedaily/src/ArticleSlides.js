@@ -54,7 +54,7 @@ const ArticleSlides = () => {
     const slides = items.map((article) => {
         return (
             <CarouselItem
-                className="custom-tag bg-light"
+                className="custom-tag"
                 tag="div"
                 key={article.id}
                 onExiting={() => setAnimating(true)}
@@ -74,11 +74,11 @@ const ArticleSlides = () => {
     /** return carousel homepage */
     return (
         <div>
-            <Carousel activeIndex={activeIndex} next={next} previous={previous}>
-                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
+            <Carousel activeIndex={activeIndex} next={next} previous={previous} dark>
+                <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex}/>
                 {slides}
-                <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-                <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
+                <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous}/>
+                <CarouselControl direction="next" directionText="Next" onClickHandler={next}/>
             </Carousel>
             <div className="p-2">Copywrite 2023</div>
         </div>
