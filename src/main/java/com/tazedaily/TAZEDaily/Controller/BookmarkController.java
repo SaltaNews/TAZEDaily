@@ -36,9 +36,5 @@ public class BookmarkController {
         return new ResponseEntity<>(bookmarkRepository.save(bookmark), HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = "/{bookmarkId}", method = RequestMethod.DELETE)
-    public ResponseEntity<Bookmark> delete(@PathVariable Long bookmarkId) {
-        bookmarkRepository.deleteById(bookmarkId);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+
 }
