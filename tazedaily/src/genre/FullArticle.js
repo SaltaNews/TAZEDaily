@@ -27,6 +27,7 @@ const FullArticles = (props) => {
             <Row key={articles.id}>
                 <Col>
                 <p><h2>{articles.title}</h2></p>
+                <img src={ articles.image } alt="article" width="50%"/>
                 <p>{articles.article}</p>
                 <p>{articles.author} {articles.date}</p>
                 <strong>{articles.snip}</strong>
