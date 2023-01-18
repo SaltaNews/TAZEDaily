@@ -6,6 +6,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import comment from '../images/comment.png';
+import FullArticle from './FullArticle';
 
 const PopulateArticles = (props) => {
     const [articles, setArticles] = useState([])
@@ -64,9 +65,9 @@ const PopulateArticles = (props) => {
                 <p><h6>{article.title}</h6></p>
                 <p>{article.article}</p>
                 <p>{article.author} {article.date}</p>
-                {/* <p>Full article:<a href={article.id}> Read More</a></p> */}
-                <p>Full article:<a href={article.source}> NY Times</a></p>
                 <p>{article.genre}</p>
+                <p>Full article:<a href="/fullarticle"> Read More</a></p>
+                <p>Source:<a href={article.source}> NY Times</a></p>
                 <p>
                 <button onClick = {likesClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="4 0 16 20">
@@ -116,9 +117,9 @@ const PopulateArticles = (props) => {
             <p><h6>{article.title}</h6></p>
             <p>{article.article}</p>
             <p>{article.author} {article.date}</p>
-            {/* <p>Full article:<a href={article.id}> Read More</a></p> */}
-            <p>Full article:<a href={article.source}> NY Times</a></p>
             <p>{article.genre}</p>
+            <p>Full article:<a href={article.id}> Read More</a></p>
+            <p>Source:<a href={article.source}> NY Times</a></p>
             <p>
                 <button onClick = {likesClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="4 0 16 20">
@@ -177,9 +178,10 @@ const PopulateArticles = (props) => {
                 <p><h6>{article.snip}</h6></p>
                 <p>{article.article}</p>
                 <p>{article.author} {article.date}</p>
-                {/* <p>Full article:<a href={article.id}> Read More</a></p> */}
-                <p>Full article:<a href={article.source}> NY Times</a></p>
                 <p>{article.genre}</p>
+                <p>Full article:<a href={article.id}> Read More</a>
+                </p>
+                <p>Source:<a href={article.source}> NY Times</a></p>
                 <p>
                 <button onClick = {likesClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="4 0 16 20">

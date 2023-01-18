@@ -15,6 +15,7 @@ import Travel from './genre/Travel';
 import Entertainment from './genre/Entertainment';
 import Style from './genre/Style';
 import Politics from './genre/Politics';
+import FullArticle from './genre/FullArticle';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -31,7 +32,11 @@ root.render(
       <Route path="/entertainment" element={<Entertainment />} />
       <Route path="/style" element={<Style />} />
       <Route path="/politics" element={<Politics />} />
+{/* <<<<<<< HEAD */}
+      <Route path="/fullarticle" element={<FullArticle category="17" />} />
+{/* =======
 
+>>>>>>> refs/remotes/origin/master */}
     </Routes>
   </BrowserRouter>
   //</ErrorBoundary>
