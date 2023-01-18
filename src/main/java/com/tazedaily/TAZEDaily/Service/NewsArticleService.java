@@ -18,4 +18,9 @@ public class NewsArticleService {
         newsArticle.setLikes(likes + 1);
         return newsArticleRepository.save(newsArticle);
     }
+
+    public Boolean delete(Long id) {
+        newsArticleRepository.deleteById(id);
+        return true;
+    }
 }
