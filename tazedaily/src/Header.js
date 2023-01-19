@@ -5,14 +5,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Home = () => {
     return(
-        <div className="text-center">
+        <div className="container text-center">
             <div>
                 <Button variant="p-0 outline-*-light" href="/">
                     <img src={logo} alt="TAZE Daily"/>
                 </Button>
             </div>
             <div>
-                <div className ="row align-items-start">
+                <div className ="container row align-items-start">
                     <div className="col p-0">
                         <center><hr className="divider"></hr></center>
                         <Button variant="outline-*-light" href="/business">BUSINESS</Button>

@@ -36,6 +36,11 @@ public class NewsArticleController {
         return new ResponseEntity<>(newsArticleRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/hello")
+    public ResponseEntity<String> displayHelloMessage() {
+        return ResponseEntity.ok("Hello");
+    }
+
     @GetMapping("/id/{id}")
     public ResponseEntity<NewsArticle> getArticle(@PathVariable Long id) {
         return new ResponseEntity<>(newsArticleRepository.findArticleById(id), HttpStatus.OK);

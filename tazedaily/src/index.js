@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import ErrorBoundary from './ErrorBoundary';
 
 import App from './App';
 import Business from './genre/Business';
@@ -32,11 +31,7 @@ root.render(
       <Route path="/entertainment" element={<Entertainment />} />
       <Route path="/style" element={<Style />} />
       <Route path="/politics" element={<Politics />} />
-{/* <<<<<<< HEAD */}
       <Route path="/fullarticle" element={<FullArticle category="17" />} />
-{/* =======
-
->>>>>>> refs/remotes/origin/master */}
     </Routes>
   </BrowserRouter>
   //</ErrorBoundary>
