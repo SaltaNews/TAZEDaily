@@ -54,7 +54,7 @@ const ArticleSlides = () => {
     const slides = items.map((article) => {
         return (
             <CarouselItem
-                className="custom-tag bg-light"
+                className="custom-tag"
                 tag="div"
                 key={article.id}
                 onExiting={() => setAnimating(true)}
