@@ -6,10 +6,11 @@ import Accordion from 'react-bootstrap/Accordion';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import comment from '../images/comment.png';
+import FullArticle from './FullArticle';
 
 const PopulateArticles = (props) => {
     const [articles, setArticles] = useState([])
-    
+
     const url = "http://127.0.0.1:8080/newsarticle/genre/" + props.category;
 
     useEffect(() => {
@@ -56,16 +57,17 @@ const PopulateArticles = (props) => {
         <Accordion.Item eventKey={article.id}>
             <Accordion.Header id="accordion-button">
                 <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
-                    <strong>{article.snip}</strong>
+                    {/* <strong>{article.snip}</strong> */}
+                    <strong>{article.title}</strong>
                 </OverlayTrigger>
             </Accordion.Header>
             <Accordion.Body>
                 <p><h6>{article.title}</h6></p>
                 <p>{article.article}</p>
                 <p>{article.author} {article.date}</p>
-                {/* <p>Full article:<a href={article.id}> Read More</a></p> */}
-                <p>Full article:<a href={article.source}> NY Times</a></p>
                 <p>{article.genre}</p>
+                <p>Full article:<a href="/fullarticle"> Read More</a></p>
+                <p>Source:<a href={article.source}> NY Times</a></p>
                 <p>
                 <button onClick = {likesClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="4 0 16 20">
@@ -107,16 +109,17 @@ const PopulateArticles = (props) => {
         <Accordion.Item eventKey={article.id}>
         <Accordion.Header id="accordion-button">
             <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
-            <strong>{article.snip}</strong>
+            {/* <strong>{article.snip}</strong> */}
+            <strong>{article.title}</strong>
             </OverlayTrigger>
         </Accordion.Header>
         <Accordion.Body>
             <p><h6>{article.title}</h6></p>
             <p>{article.article}</p>
             <p>{article.author} {article.date}</p>
-            {/* <p>Full article:<a href={article.id}> Read More</a></p> */}
-            <p>Full article:<a href={article.source}> NY Times</a></p>
             <p>{article.genre}</p>
+            <p>Full article:<a href={article.id}> Read More</a></p>
+            <p>Source:<a href={article.source}> NY Times</a></p>
             <p>
                 <button onClick = {likesClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="4 0 16 20">
@@ -167,16 +170,18 @@ const PopulateArticles = (props) => {
         <Accordion.Item eventKey={article.id}>
             <Accordion.Header id="accordion-button">
                 <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
-                    <strong>{article.snip}</strong>
+                    {/* <strong>{article.snip}</strong> */}
+                    <strong>{article.title}</strong>
                 </OverlayTrigger>
             </Accordion.Header>
             <Accordion.Body>
-                <p><h6>{article.title}</h6></p>
+                <p><h6>{article.snip}</h6></p>
                 <p>{article.article}</p>
                 <p>{article.author} {article.date}</p>
-                {/* <p>Full article:<a href={article.id}> Read More</a></p> */}
-                <p>Full article:<a href={article.source}> NY Times</a></p>
                 <p>{article.genre}</p>
+                <p>Full article:<a href={article.id}> Read More</a>
+                </p>
+                <p>Source:<a href={article.source}> NY Times</a></p>
                 <p>
                 <button onClick = {likesClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-hand-thumbs-up" viewBox="4 0 16 20">
@@ -217,6 +222,6 @@ const PopulateArticles = (props) => {
         </div>
     )
 }
-  
+
 
 export default PopulateArticles;
