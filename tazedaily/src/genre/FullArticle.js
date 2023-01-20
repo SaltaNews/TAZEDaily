@@ -4,6 +4,7 @@ import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'reactstrap';
 import Header from '../Header'
+import moment from 'moment'
 
 const FullArticles = (props) => {
     const [articles, setArticles] = useState([])
@@ -19,24 +20,21 @@ const FullArticles = (props) => {
         const res = await axios.get(url)
         setArticles(res.data)
     }
-
-  return (
-    <Container className="text-center" fluid>
-        {/* {articles.map(article => ( */}
-        <Header />
-            <Row key={articles.id}>
-                <Col>
-                <p><h2>{articles.title}</h2></p>
-                <img src={ articles.image } alt="article" width="50%"/>
-                <p>{articles.article}</p>
-                <p>{articles.author} {articles.date}</p>
-                <strong>{articles.snip}</strong>
-                </Col>
-            </Row>
-        {/* ))} */}
-    </Container>
-);
-
+    
+    return (
+        <Container className="text-center" fluid>
+            <Header />
+                <Row key={articles.id}>
+                    <Col>
+                    <p><h2>{articles.title}</h2></p>
+                    <img src={ articles.image } alt="article" height="300px"/>
+                    <p>{articles.article}</p>
+                    <p>{articles.author} {moment(articles.date).utc().format('MMM DD, YYYY')}</p>
+                    <strong>{articles.snip}</strong>
+                    </Col>
+                </Row>
+        </Container>
+    );
 }
 
 export default FullArticles;

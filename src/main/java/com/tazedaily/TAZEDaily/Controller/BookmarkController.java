@@ -36,5 +36,4 @@ public class BookmarkController {
         return new ResponseEntity<>(bookmarkRepository.save(bookmark), HttpStatus.CREATED);
     }
 
-
 }

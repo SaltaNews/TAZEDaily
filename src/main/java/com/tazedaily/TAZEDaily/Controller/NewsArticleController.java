@@ -36,9 +36,9 @@ public class NewsArticleController {
         return new ResponseEntity<>(newsArticleRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/hello")
-    public ResponseEntity<String> displayHelloMessage() {
-        return ResponseEntity.ok("Hello");
+    @GetMapping("/rand")
+    public ResponseEntity<Iterable<NewsArticle>> getRandArticles() {
+        return new ResponseEntity<>(newsArticleRepository.findRandArticles(), HttpStatus.OK);
     }
 
     @GetMapping("/id/{id}")
@@ -68,6 +68,7 @@ public class NewsArticleController {
 
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id) {
-        newsArticleRepository.deleteById(id);
+        NewsArticle newsArticle = newsArticleRepository.findArticleById(id);
+        newsArticleRepository.delete(newsArticle);
     }
 }
