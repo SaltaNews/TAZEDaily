@@ -18,7 +18,6 @@ import FullArticle from './genre/FullArticle';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
-  //<ErrorBoundary>
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
@@ -31,10 +30,9 @@ root.render(
       <Route path="/entertainment" element={<Entertainment />} />
       <Route path="/style" element={<Style />} />
       <Route path="/politics" element={<Politics />} />
-      <Route path="/fullarticle" element={<FullArticle category="17" />} />
+      <Route path="/fullarticle" element={<FullArticle />} />
     </Routes>
   </BrowserRouter>
-  //</ErrorBoundary>
 );
 
 reportWebVitals();

@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Home = () => {
+const Header = () => {
     return(
         <div className="container text-center">
             <div>
@@ -32,4 +32,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default Header;
