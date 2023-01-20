@@ -7,7 +7,6 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import comment from '../images/comment.png';
 import moment from 'moment';
-import FullArticle from './FullArticle';
 
 const PopulateArticles = (props) => {
     const [articles, setArticles] = useState([])
@@ -58,7 +57,7 @@ const PopulateArticles = (props) => {
                 <p>{article.article}</p>
                 <p>{article.author} / {moment(article.date).utc().format('MMM DD, YYYY')}</p>
                 <p>{article.genre}</p>
-                <p>Full article:<a href="/fullarticle"> Read More</a></p>
+                <p>Full article:<a href="/fullarticle" articleId={article.id}> Read More</a></p>
                 <p>Source:<a href={article.source}> NY Times</a></p>
                 <p>
                 <button onClick = {likesClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}>
@@ -110,7 +109,7 @@ const PopulateArticles = (props) => {
             <p>{article.article}</p>
             <p>{article.author} / {moment(article.date).utc().format('MMM DD, YYYY')}</p>
             <p>{article.genre}</p>
-            <p>Full article:<a href={article.id}> Read More</a></p>
+            <p>Full article:<a href="/fullarticle"> Read More</a></p>
             <p>Source:<a href={article.source}> NY Times</a></p>
             <p>
                 <button onClick = {likesClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}>
@@ -162,7 +161,7 @@ const PopulateArticles = (props) => {
                     <p>{article.article}</p>
                     <p>{article.author} / {moment(article.date).utc().format('MMM DD, YYYY')}</p>
                     <p>{article.genre}</p>
-                    <p>Full article:<a href={article.id}> Read More</a>
+                    <p>Full article:<a href="/fullarticle"> Read More</a>
                 </p>
                 <p>Source:<a href={article.source}> NY Times</a></p>
                 <p>

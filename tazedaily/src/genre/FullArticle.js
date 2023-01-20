@@ -9,7 +9,7 @@ import moment from 'moment'
 const FullArticles = (props) => {
     const [articles, setArticles] = useState([])
     
-    const url = "http://127.0.0.1:8080/newsarticle/id/" + props.category;
+    const url = "http://127.0.0.1:8080/newsarticle/id/" + props.articleId;
 
     useEffect(() => {
         fetchArticles()
@@ -20,16 +20,16 @@ const FullArticles = (props) => {
         const res = await axios.get(url)
         setArticles(res.data)
     }
-    
+
     return (
         <Container className="text-center" fluid>
             <Header />
                 <Row key={articles.id}>
                     <Col>
                     <p><h2>{articles.title}</h2></p>
-                    <img src={ articles.image } alt="article" height="300px"/>
+                    <img className="rounded" src={ articles.image } alt="article" height="300px"/>
                     <p>{articles.article}</p>
-                    <p>{articles.author} {moment(articles.date).utc().format('MMM DD, YYYY')}</p>
+                    <p>{articles.author} / {moment(articles.date).utc().format('MMM DD, YYYY')}</p>
                     <strong>{articles.snip}</strong>
                     </Col>
                 </Row>
