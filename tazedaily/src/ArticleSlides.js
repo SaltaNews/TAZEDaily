@@ -8,7 +8,7 @@ const ArticleSlides = () => {
     const [articles, setArticles] = useState([])
     /** get articles from REST API */
     const fetchArticles = async () => {
-        const res = await axios.get("http://127.0.0.1:8080/newsarticle")
+        const res = await axios.get("http://127.0.0.1:8080/newsarticle/rand")
         setArticles(res.data.splice(0, 10))
     }
     useEffect(() => {

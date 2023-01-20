@@ -6,6 +6,7 @@ import Accordion from 'react-bootstrap/Accordion';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import comment from '../images/comment.png';
+import moment from 'moment';
 import FullArticle from './FullArticle';
 
 const PopulateArticles = (props) => {
@@ -34,24 +35,15 @@ const PopulateArticles = (props) => {
             </Popover.Body>
         </Popover>
     );
-// read full article
-    // useEffect(() => {
-    //     const fetchArticles = async () => {
-    //       const res = await axios.get(url);
-    //       setArticles(res.data);
-    //     }
-    //     fetchArticles();
-    //   }, []);
 
-    /** clickable like button */
-        const likesClick = async () => {
-            try {
-                const updatedArticle = await axios.put(`http://localhost:8080/newsarticle/update/${article.id}`);
-                article.setLikes(updatedArticle.data.likes);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+    const likesClick = async () => {
+        try {
+            const updatedArticle = await axios.put(`http://localhost:8080/newsarticle/update/${article.id}`);
+            article.setLikes(updatedArticle.data.likes);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     return (
         <Accordion.Item eventKey={article.id}>
@@ -64,7 +56,7 @@ const PopulateArticles = (props) => {
             <Accordion.Body>
                 <p><h6>{article.title}</h6></p>
                 <p>{article.article}</p>
-                <p>{article.author} {article.date}</p>
+                <p>{article.author} / {moment(article.date).utc().format('MMM DD, YYYY')}</p>
                 <p>{article.genre}</p>
                 <p>Full article:<a href="/fullarticle"> Read More</a></p>
                 <p>Source:<a href={article.source}> NY Times</a></p>
@@ -116,7 +108,7 @@ const PopulateArticles = (props) => {
         <Accordion.Body>
             <p><h6>{article.title}</h6></p>
             <p>{article.article}</p>
-            <p>{article.author} {article.date}</p>
+            <p>{article.author} / {moment(article.date).utc().format('MMM DD, YYYY')}</p>
             <p>{article.genre}</p>
             <p>Full article:<a href={article.id}> Read More</a></p>
             <p>Source:<a href={article.source}> NY Times</a></p>
@@ -157,29 +149,20 @@ const PopulateArticles = (props) => {
         }
     };
 
-    // const commentClick = async () => {
-    //     try {
-    //         const updatedArticle = await axios.put(`http://localhost:8080/newsarticle/comment/${article.id}`);
-    //         article.setComment(updatedArticle.data);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
-
     return (
         <Accordion.Item eventKey={article.id}>
-            <Accordion.Header id="accordion-button">
-                <OverlayTrigger className="text-truncate" trigger={hoverFocus} placement="top" overlay={ popover }>
+            <Accordion.Header id="accordion-button" className="text-truncate">
+                <OverlayTrigger trigger={hoverFocus} placement="top" overlay={ popover }>
                     {/* <strong>{article.snip}</strong> */}
                     <strong>{article.title}</strong>
                 </OverlayTrigger>
             </Accordion.Header>
             <Accordion.Body>
                 <p><h6>{article.snip}</h6></p>
-                <p>{article.article}</p>
-                <p>{article.author} {article.date}</p>
-                <p>{article.genre}</p>
-                <p>Full article:<a href={article.id}> Read More</a>
+                    <p>{article.article}</p>
+                    <p>{article.author} / {moment(article.date).utc().format('MMM DD, YYYY')}</p>
+                    <p>{article.genre}</p>
+                    <p>Full article:<a href={article.id}> Read More</a>
                 </p>
                 <p>Source:<a href={article.source}> NY Times</a></p>
                 <p>
@@ -190,9 +173,7 @@ const PopulateArticles = (props) => {
                 </button>
                 <span>{article.likes} Likes </span>
                     <p>
-                    {/* <button onClick = {commentClick} style={{height: '28px', width : '30px' , color: "blue", marginleft: '30px'}}> */}
-                    <img src={comment} alt="comment" width="40" height="40" viewBox="0 0 16 16"/>
-                    {/* </button> */}
+                        <img src={comment} alt="comment" width="40" height="40" viewBox="0 0 16 16"/>
                     </p>
                 </p>
             </Accordion.Body>

@@ -6,7 +6,10 @@ import org.springframework.stereotype.Service;
 import com.tazedaily.TAZEDaily.Domain.NewsArticle;
 import com.tazedaily.TAZEDaily.Repository.NewsArticleRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
+@Transactional
 public class NewsArticleService {
 
     @Autowired
@@ -17,10 +20,5 @@ public class NewsArticleService {
         int likes = newsArticle.getLikes();
         newsArticle.setLikes(likes + 1);
         return newsArticleRepository.save(newsArticle);
-    }
-
-    public Boolean delete(Long id) {
-        newsArticleRepository.deleteById(id);
-        return true;
     }
 }
