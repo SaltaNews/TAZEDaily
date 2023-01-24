@@ -31,6 +31,9 @@ const FullArticles = (props) => {
                     <p>{articles.article}</p>
                     <p>{articles.author} / {moment(articles.date).utc().format('MMM DD, YYYY')}</p>
                     <strong>{articles.snip}</strong>
+                    {/* <p>
+                        <img src={comment} alt="comment" width="40" height="40" viewBox="0 0 16 16"/>
+                    </p> */}
                     </Col>
                 </Row>
         </Container>
