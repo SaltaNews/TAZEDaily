@@ -45,7 +45,7 @@ const ArticlesToDB = () => {
     })
     return(
         <div>
-            <Button>Is this on?</Button>
+            <Button>Upload the articles</Button>
         </div>
     )
 }
