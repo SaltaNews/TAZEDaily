@@ -4,11 +4,14 @@ import React, {useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
 
+const API_URL = process.env.MYSQL_SERVER;
+const url = API_URL + '/newsarticle/rand';
+
 const ArticleSlides = () => {
     const [articles, setArticles] = useState([])
     /** get articles from REST API */
     const fetchArticles = async () => {
-        const res = await axios.get("http://127.0.0.1:8080/newsarticle/rand")
+        const res = await axios.get({url})
         setArticles(res.data.splice(0, 10))
     }
     useEffect(() => {

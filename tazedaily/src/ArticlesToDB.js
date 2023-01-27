@@ -1,7 +1,9 @@
 import { useState, Button, useEffect } from 'react';
 import axios from 'axios';
 
-const REACT_APP_ARTICLESEARCH_API_KEY = '';
+const NY_KEY = process.env.REACT_APP_ARTICLESEARCH_API_KEY;
+const API_URL = process.env.MYSQL_SERVER;
+
 /** Load Database with NY Times API */
 const ArticlesToDB = () => {
     // const genreArray = ['home', 'business', 'food', 'health', 'politics', 'sports', 'style', 'technology', 'travel'];
@@ -11,7 +13,7 @@ const ArticlesToDB = () => {
   // for (let i=0; i<1; i++) {
     // pull articles from NY Times
     const getArticles = async () => {
-        const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=home&api-key=${REACT_APP_ARTICLESEARCH_API_KEY}`);
+        const res = await axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=home&api-key=${NY_KEY}`);
         setArticles(res.data.response.docs.splice(0, 10));
     }
     useEffect(() => {
@@ -34,7 +36,7 @@ const ArticlesToDB = () => {
 
     const postArticles = async () => {
         try {
-            const res = await axios.post('http://127.0.0.1:8080/newsarticle/postall', {tempArray})
+            const res = await axios.post(`${API_URL}/newsarticle/postall`, {tempArray})
             console.log(res.data)
         } catch (error) {
             console.log(error)
