@@ -4,13 +4,13 @@ import React, {useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel, CarouselItem, CarouselControl, CarouselIndicators, CarouselCaption } from 'reactstrap';
 
-const { REACT_APP_API_ENDPOINT } = process.env;
+const url = process.env.REACT_APP_API_ENDPOINT;
 
 const ArticleSlides = () => {
     const [articles, setArticles] = useState([])
     /** get articles from REST API */
     const fetchArticles = async () => {
-        const res = await axios.get(`${REACT_APP_API_ENDPOINT}/newsarticle/rand`)
+        const res = await axios.get(`${url}/newsarticle/rand`)
         setArticles(res.data.splice(0, 10))
     }
     useEffect(() => {
@@ -18,10 +18,10 @@ const ArticleSlides = () => {
     }, [])
 
     /** load array for carousel */
-    var items = []
+    var items:any[] = [];
     for (let i=0; i<articles.length; i++) {
-        if (items[0] === []) {
-            items.pop()
+        if (items == null) {
+            items.pop();
         } else {
             items.push({
             id: articles[i].id,
