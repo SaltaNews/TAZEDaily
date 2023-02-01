@@ -9,7 +9,7 @@ import moment from 'moment'
 const FullArticles = (props) => {
     const [articles, setArticles] = useState([])
     
-    const url = "http://127.0.0.1:8080/newsarticle/id/" + props.articleId;
+    const url = `${process.env.REACT_APP_API_ENDPOINT}/newsarticle/id/9`; // + props.articleId;
 
     useEffect(() => {
         fetchArticles()
@@ -24,18 +24,20 @@ const FullArticles = (props) => {
     return (
         <Container className="text-center" fluid>
             <Header />
+            <div>
                 <Row key={articles.id}>
                     <Col>
-                    <p><h2>{articles.title}</h2></p>
-                    <img className="rounded" src={ articles.image } alt="article" height="300px"/>
-                    <p>{articles.article}</p>
-                    <p>{articles.author} / {moment(articles.date).utc().format('MMM DD, YYYY')}</p>
-                    <strong>{articles.snip}</strong>
-                    {/* <p>
-                        <img src={comment} alt="comment" width="40" height="40" viewBox="0 0 16 16"/>
-                    </p> */}
+                        <h2>{articles.title}</h2>
+                        <img className="rounded" src={ articles.image } alt="article" height="300px"/>
+                        <p><strong>{articles.snip}</strong></p>
+                        <p>{articles.article}</p>
+                        <p>{articles.author} / {moment(articles.date).utc().format('MMM DD, YYYY')}</p>
+                        {/* <p>
+                            <img src={comment} alt="comment" width="40" height="40" viewBox="0 0 16 16"/>
+                        </p> */}
                     </Col>
                 </Row>
+            </div>
         </Container>
     );
 }

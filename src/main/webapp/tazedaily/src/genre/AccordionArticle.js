@@ -13,7 +13,7 @@ const AccordionArticle = (props) => {
        /** add likes to article */
     const likesClick = async (props) => {
         try {
-            await axios.put(`http://localhost:8080/newsarticle/update/${props}`);
+            await axios.put(`${process.env.REACT_APP_API_ENDPOINT}/newsarticle/update/${props}`);
         } catch (error) {
             console.log(error);
         }
