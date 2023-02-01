@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import App from './App';
 import Business from './genre/Business';
@@ -15,6 +15,7 @@ import Entertainment from './genre/Entertainment';
 import Style from './genre/Style';
 import Politics from './genre/Politics';
 import FullArticle from './genre/FullArticle';
+import ArticlesToDB from './ArticlesToDB';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
@@ -30,7 +31,7 @@ root.render(
       <Route path="/entertainment" element={<Entertainment />} />
       <Route path="/style" element={<Style />} />
       <Route path="/politics" element={<Politics />} />
-      <Route path="/fullarticle" element={<FullArticle />} />
+      <Route path="/fullarticle" element={<ArticlesToDB />} />
     </Routes>
   </BrowserRouter>
 );

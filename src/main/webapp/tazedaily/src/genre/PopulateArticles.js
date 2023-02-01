@@ -13,7 +13,7 @@ const PopulateArticles = (props) => {
     })
 
     /** get articles from REST API */
-    const url = "http://127.0.0.1:8080/newsarticle/genre/" + props.category;
+    const url = `${process.env.REACT_APP_API_ENDPOINT}/newsarticle/genre/` + props.category;
     const fetchArticles = async () => {
         const res = await axios.get(url)
         setArticles(res.data)
