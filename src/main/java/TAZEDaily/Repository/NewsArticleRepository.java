@@ -15,6 +15,6 @@ public interface NewsArticleRepository extends JpaRepository<NewsArticle, Long> 
 
     Iterable<NewsArticle> findArticlesByGenre(Genre genre);
 
-    @Query(value = "SELECT * FROM news_article order by rand()", nativeQuery = true)
+    @Query(value = "SELECT DISTINCT(title), id, author, snip, article, image, source, genre, date, likes FROM news_article order by rand()", nativeQuery = true)
     List<NewsArticle> findRandArticles();
 }
