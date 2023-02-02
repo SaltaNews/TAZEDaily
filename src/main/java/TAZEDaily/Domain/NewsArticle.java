@@ -49,7 +49,7 @@ public class NewsArticle {
 
     private Integer likes;
 
-    @JsonIgnore
-    @OneToMany
-    private Set<Comment> Comments = new HashSet<>();
+    // @JsonIgnore
+    // @OneToMany
+    // private Set<Comment> Comments = new HashSet<>();
 }
