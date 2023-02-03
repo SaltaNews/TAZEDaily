@@ -8,7 +8,8 @@ import Popover from 'react-bootstrap/Popover';
 import moment from 'moment';
 
 const AccordionArticle = (props) => {
-    const article = props.article
+    const article = props.article;
+    const url = "/fullarticle/" + article.id;
 
        /** add likes to article */
     const likesClick = async (props) => {
@@ -40,7 +41,7 @@ const AccordionArticle = (props) => {
                 <p>{article.article}</p>
                 <p>{article.author} / {moment(article.date).utc().format('MMM DD, YYYY')}</p>
                 <p>{article.genre}</p>
-                <p>Full article:<a href="/fullarticle" articleId={article.id}> Read More</a></p>
+                <p>Full article:<a href={url}> Read More</a></p>
                 <p>Source:<a href={article.source}> NY Times</a></p>
                 <p>
                     <button type="button" class="btn" onClick = {(e) => likesClick(article.id, e)}>
