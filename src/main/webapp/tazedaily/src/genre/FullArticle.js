@@ -3,13 +3,14 @@ import React, {useState, useEffect } from 'react';
 import '../App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'reactstrap';
-import Header from '../Header'
-import moment from 'moment'
+import { useParams } from 'react-router-dom';
+import Header from '../Header';
+import moment from 'moment';
 
-const FullArticles = (props) => {
+const FullArticles = () => {
     const [articles, setArticles] = useState([])
     
-    const url = `${process.env.REACT_APP_API_ENDPOINT}/newsarticle/id/9`; // + props.articleId;
+    const url = `${process.env.REACT_APP_API_ENDPOINT}/newsarticle/id/` + useParams().id;
 
     useEffect(() => {
         fetchArticles()

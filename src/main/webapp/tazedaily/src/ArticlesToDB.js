@@ -53,7 +53,6 @@ const ArticlesToDB = () => {
                 <Header /> 
             </div>
             <Button onClick={getArticles}>Get Articles</Button>
-            {/* <div>{tempArray}</div> */}
             <Button onClick={postArticles}>Upload Articles</Button>
         </div>
     )

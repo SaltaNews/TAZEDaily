@@ -31,7 +31,8 @@ root.render(
       <Route path="/entertainment" element={<Entertainment />} />
       <Route path="/style" element={<Style />} />
       <Route path="/politics" element={<Politics />} />
-      <Route path="/fullarticle" element={<ArticlesToDB />} />
+      <Route path="/fullarticle/:id" element={<FullArticle />} />
+      <Route path="/addarticles" element={<ArticlesToDB />} />
     </Routes>
   </BrowserRouter>
 );

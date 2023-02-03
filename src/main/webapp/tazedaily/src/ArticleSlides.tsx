@@ -48,6 +48,7 @@ const ArticleSlides = () => {
 
     /** fill slides with article info */
     const slides = items.map((article) => {
+        const url = "/fullarticle/" + article.id;
         return (
             <CarouselItem
                 className="custom-tag"
@@ -58,7 +59,9 @@ const ArticleSlides = () => {
             <div className="p-3 row justify-content-center text-center">
                 <div ></div>
                 <div className="col-5">
-                    <img className="rounded slidepic" src={article.src} alt={article.title} />
+                    <a  href={url}>
+                        <img className="rounded slidepic" src={article.src} alt={article.title} />
+                    </a>
                 </div>
                 <div></div>
             </div>
